@@ -58,29 +58,31 @@ function init() {
         process.exit(1);
     }
 
+    try {
+        program
+            .arguments('<name>')
+            .description('Create a new Web3 script project')
+            .action(name => {
+                console.log(clalk.blue(`💼 Creating ${name} project...`));
+                if (existsSync(`./${name}`)) {
+                    console.log(clalk.red(`❌ Error: < ${name} > folder already exists!`))
+                    process.exit()
+                }
 
+                execSync(`git clone https://github.com/XuMinhui/web3-script-template ${name}`);
+                console.log(clalk.green(`✅ success clone repository!`))
 
-    program
-        .arguments('<name>')
-        .description('Create a new Web3 script project')
-        .action(name => {
-            console.log(clalk.blue(`💼 Creating ${name} project...`));
-            if (existsSync(`./${name}`)) {
-                console.log(clalk.red(`❌ Error: < ${name} > folder already exists!`))
-                process.exit()
-            }
+                console.log(clalk.blue(`⌛️ Dependencies are being installed...`));
+                execSync(`cd ${name} && npm install`);
+                console.log(clalk.green(`✅ success install dependencies!`))
 
-            execSync(`git clone https://github.com/XuMinhui/web3-script-template ${name}`);
-            console.log(clalk.green(`✅ success clone repository!`))
+                console.log(clalk.green(`🐎 Done!`));
+            });
 
-            console.log(clalk.blue(`⌛️ Dependencies are being installed...`));
-            execSync(`cd ${name} && npm install`);
-            console.log(clalk.green(`✅ success install dependencies!`))
-
-            console.log(clalk.green(`🐎 Done!`));
-        });
-
-    program.parse(process.argv);
+        program.parse(process.argv);
+    } catch (error) {
+        console.log(clalk.red(error.message))
+    }
 }
 
 init()
