@@ -1,6 +1,6 @@
 {
   "name": "create-web3-script",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create web3 script with no build configuration.",
   "main": "index.js",
   "files": [
@@ -16,8 +16,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^5.2.0",
+    "chalk": "^4.1.2",
     "child_process": "^1.0.2",
-    "commander": "^10.0.0"
+    "commander": "^10.0.0",
+    "create-web3-script": "^1.0.0"
   }
 }
