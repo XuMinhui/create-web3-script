@@ -1,0 +1,23 @@
+{
+  "name": "create-web3-script",
+  "version": "1.0.0",
+  "description": "Create web3 script with no build configuration.",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "bin": {
+    "create-web3-script": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "child_process": "^1.0.2",
+    "commander": "^10.0.0"
+  }
+}
